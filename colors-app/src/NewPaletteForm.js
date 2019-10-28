@@ -9,8 +9,11 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { Button } from '@material-ui/core';
+import { ChromePicker } from 'react-color';
+import clsx from 'clsx';
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const styles = (theme) => ({
 	root: {
@@ -72,29 +75,27 @@ class NewPaletteForm extends Component {
 	state = {
 		open: false
 	};
+
+	handleDrawerOpen = () => {
+		this.setState({ open: true });
+	};
+
+	handleDrawerClose = () => {
+		this.setState({ open: false });
+	};
+
 	render() {
 		const { classes, theme } = this.props;
 		const { open } = this.state;
-
-		const handleDrawerOpen = () => {
-			this.setState({ open: true });
-		};
-
-		const handleDrawerClose = () => {
-			this.setState({ open: false });
-		};
 
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
 				<AppBar
 					position="fixed"
-					className={
-						(classes.appBar,
-						{
-							[classes.appBarShift]: open
-						})
-					}
+					className={clsx(classes.appBar, {
+						[classes.appBarShift]: open
+					})}
 				>
 					<Toolbar>
 						<IconButton
@@ -102,7 +103,7 @@ class NewPaletteForm extends Component {
 							aria-label="open drawer"
 							onClick={this.handleDrawerOpen}
 							edge="start"
-							className={classNames(classes.menuButton, open && classes.hide)}
+							className={clsx(classes.menuButton, open && classes.hide)}
 						>
 							<MenuIcon />
 						</IconButton>
@@ -126,6 +127,19 @@ class NewPaletteForm extends Component {
 						</IconButton>
 					</div>
 					<Divider />
+					<Typography variant="h4">Design Your Palette</Typography>
+					<div>
+						<Button variant="contained" color="secondary">
+							Clear Palette
+						</Button>
+						<Button variant="contained" color="primary">
+							Random Color
+						</Button>
+					</div>
+					<ChromePicker color="purple" onChangeComplete={(newColor) => console.log(newColor)} />
+					<Button variant="contained" color="primary">
+						Add Color
+					</Button>
 				</Drawer>
 				<main
 					className={
