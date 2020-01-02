@@ -7,7 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Button } from '@material-ui/core';
 import PaletteMetaForm from './PaletteMetaForm';
 import clsx from 'clsx';
@@ -62,9 +61,12 @@ class PaletteFormNav extends Component {
 		this.setState({ formShowing: true });
 	};
 
+	closeForm = () => {
+		this.setState({ formShowing: false });
+	};
+
 	render() {
 		const { classes, open, palettes, handleSubmit } = this.props;
-		const { newPaletteName } = this.state;
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -100,7 +102,9 @@ class PaletteFormNav extends Component {
 						</Button>
 					</div>
 				</AppBar>
-				{this.state.formShowing && <PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} />}
+				{this.state.formShowing && (
+					<PaletteMetaForm palettes={palettes} handleSubmit={handleSubmit} closeForm={this.closeForm} />
+				)}
 			</div>
 		);
 	}
