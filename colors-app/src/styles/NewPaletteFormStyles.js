@@ -21,6 +21,7 @@ const styles = (theme) => ({
 	drawerHeader: {
 		display: 'flex',
 		alignItems: 'center',
+		width: '100%',
 		padding: theme.spacing(0, 1),
 		...theme.mixins.toolbar,
 		justifyContent: 'flex-end'
@@ -28,7 +29,7 @@ const styles = (theme) => ({
 	content: {
 		flexGrow: 1,
 		height: `calc(100vh - ${appBarHeight}px)`,
-		padding: theme.spacing(3),
+		padding: 0,
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen
