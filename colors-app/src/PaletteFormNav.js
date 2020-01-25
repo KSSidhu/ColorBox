@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import AddToPhotosIcons from '@material-ui/icons/AddToPhotos';
 import { Button } from '@material-ui/core';
 import PaletteMetaForm from './PaletteMetaForm';
 import styles from './styles/PaletteFormNavStyles';
@@ -49,7 +49,7 @@ class PaletteFormNav extends Component {
 							edge="start"
 							className={clsx(classes.menuButton, { [classes.hide]: open })}
 						>
-							<ChevronRightIcon />
+							<AddToPhotosIcons />
 						</IconButton>
 						<Typography variant="h6" noWrap>
 							Create a Palette
