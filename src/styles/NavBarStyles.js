@@ -45,7 +45,7 @@ export default {
 			marginLeft: '-7px',
 			marginTop: '-4px'
 		},
-		[sizes.down('md')]: {
+		[sizes.down('sm')]: {
 			width: '200px'
 		}
 	},
