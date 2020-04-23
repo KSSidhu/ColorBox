@@ -12,6 +12,7 @@ import DraggableColorList from './DraggableColorList';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/NewPaletteFormStyles';
 import clsx from 'clsx';
+import seedColors from './seedColors';
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -21,7 +22,7 @@ class NewPaletteForm extends Component {
 		super(props);
 		this.state = {
 			open: false,
-			colors: this.props.palettes[0].colors
+			colors: seedColors[0].colors
 		};
 	}
 
