@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import PaletteFormNav from './PaletteFormNav';
-import ColorPickerForm from './ColorPickerForm';
 import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import DraggableColorList from './DraggableColorList';
 import { Button } from '@material-ui/core';
 import { arrayMove } from 'react-sortable-hoc';
+import PaletteFormNav from './PaletteFormNav';
+import ColorPickerForm from './ColorPickerForm';
+import DraggableColorList from './DraggableColorList';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/NewPaletteFormStyles';
 import clsx from 'clsx';
 
@@ -124,11 +124,7 @@ class NewPaletteForm extends Component {
 								Random Color
 							</Button>
 						</div>
-						<ColorPickerForm
-							paletteIsFull={paletteIsFull}
-							addColor={this.addNewColor}
-							colors={this.state.colors}
-						/>
+						<ColorPickerForm paletteIsFull={paletteIsFull} addColor={this.addNewColor} colors={colors} />
 					</div>
 				</Drawer>
 				<main
@@ -138,7 +134,7 @@ class NewPaletteForm extends Component {
 				>
 					<div className={classes.drawerHeader} />
 					<DraggableColorList
-						colors={this.state.colors}
+						colors={colors}
 						removeColor={this.removeColor}
 						axis="xy"
 						onSortEnd={this.onSortEnd}

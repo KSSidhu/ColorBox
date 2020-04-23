@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import ColorBox from './ColorBox';
-import { Link } from 'react-router-dom';
 import PaletteFooter from './PaletteFooter';
 import { withStyles } from '@material-ui/styles';
 import styles from './styles/PaletteStyles';
